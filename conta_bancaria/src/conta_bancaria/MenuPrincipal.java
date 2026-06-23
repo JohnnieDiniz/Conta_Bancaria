@@ -3,6 +3,7 @@ package conta_bancaria;
 import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.util.Cores;
 
 public class MenuPrincipal {
@@ -14,8 +15,9 @@ public class MenuPrincipal {
 		
 		int opcao; 
 		
-		/* Instanciar Objetod da classe Conta */
+		/* Instanciar Objetos da classe Conta */
 		
+		/*
 		Conta c1 = new Conta(1,123, 1, "Isabela", 200000.00f);
 		c1.visualizar();
 		
@@ -25,20 +27,31 @@ public class MenuPrincipal {
 		c1.setSaldo(300000.00f);
 		c1.visualizar();
 		
-		/*
+		
 		 * if ternário 
 		 * 
-		 * condição ? ação se for verdadeiro : se for falso */
+		 * condição ? ação se for verdadeiro : se for falso 
 		
 		System.out.println("\nSacar R$ 3000000,00 da conta C2: " + (c2.sacar(1000.00f) ?
 							"Saque efetuado com Sucesso" : "Saldo insuficiente"));
 		c2.visualizar();
 		
-		/* Deposito */
+		Deposito 
 		
 		c2.depositar(50000.00f);
 		c2.visualizar();
+		*/
 		
+		ContaCorrente cc1 = new ContaCorrente(3, 789, 1, "Raquel", 200000.00f, 2000.00f);
+		cc1.visualizar();
+		
+		System.out.println("\nSacar R$ 203.000,00 da conta C2: " + (cc1.sacar(203000.00f) ?
+				"Saque efetuado com Sucesso" : "Saldo insuficiente"));
+		
+		System.out.println("\nSacar R$ 203.000,00 da conta C2: " + (cc1.sacar(202000.00f) ?
+				"Saque efetuado com Sucesso | Saldo: " + cc1.getSaldo() : "Saldo insuficiente"));
+		cc1.depositar(2000.00f);
+		cc1.visualizar();
 		
 		do {
 			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND);
@@ -74,27 +87,27 @@ public class MenuPrincipal {
 					break;
 				case 4:
 					leia.nextLine();
-					System.out.print(" ---- Criar conta ----");
+					System.out.print(" ---- Atulizar dados da Conta ----");
 					break;
 				case 5:
 					leia.nextLine();
-					System.out.print(" ---- Criar conta ----");
+					System.out.print(" ---- Apagar conta ----");
 					break;
 				case 6:
 					leia.nextLine();
-					System.out.print(" ---- Criar conta ----");
+					System.out.print(" ---- Sacar ----");
 					break;
 				case 7:
 					leia.nextLine();
-					System.out.print(" ---- Criar conta ----");
+					System.out.print(" ---- Depositar ----");
 					break;
 				case 8:
 					leia.nextLine();
-					System.out.print(" ---- Criar conta ----");
+					System.out.print(" ---- Transferência ----");
 					break;
 				case 9:
 					leia.nextLine();
-					System.out.print(" ---- Criar conta ----");
+					System.out.print(" ---- Sair da operação ----");
 					System.out.println("Você saiu do programa! \n\nVolte sempre." );
 					break;
 					default:
