@@ -1,4 +1,4 @@
-\# Projeto Conta Bancária - Java
+# Projeto Conta Bancária - Java
 
  
 
@@ -18,7 +18,7 @@
 
  
 
-\------
+------
 
  
 
@@ -26,7 +26,7 @@
 
  
 
-\## 1. Descrição
+## 1. Descrição
 
  
 
@@ -48,12 +48,12 @@ Este projeto, desenvolvido em **Java**, foca no estudo e aplicação dos conceit
 
  
 
-\- Classes e Objetos;
- \- Atributos e Métodos;
- \- Modificadores de Acesso;
- \- Herança e Polimorfismo;
- \- Classes Abstratas;
- \- Interfaces.
+- Classes e Objetos;
+- Atributos e Métodos;
+- Modificadores de Acesso;
+- Herança e Polimorfismo;
+- Classes Abstratas;
+- Interfaces.
 
  
 
@@ -65,7 +65,7 @@ Além de servir como um simulador funcional, o projeto oferece uma base prática
 
  
 
-\## 2. Funcionalidades do Projeto
+## 2. Funcionalidades do Projeto
 
  
 
@@ -89,7 +89,7 @@ Além de servir como um simulador funcional, o projeto oferece uma base prática
 
  
 
-\## 3. Diagrama de Classes
+## 3. Diagrama de Classes
 
  
 
@@ -154,7 +154,7 @@ Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
 
  
 
-\## 4. Tela Inicial do Sistema - Menu
+## 4. Tela Inicial do Sistema - Menu
 
  
 
@@ -170,7 +170,7 @@ Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
 
  
 
-\## 5. Requisitos
+## 5. Requisitos
 
  
 
@@ -191,7 +191,7 @@ Para executar os códigos localmente, você precisará de:
 
  
 
-\## 6. Como Executar o projeto no Eclipse/STS
+## 6. Como Executar o projeto no Eclipse/STS
 
  
 
@@ -199,7 +199,7 @@ Para executar os códigos localmente, você precisará de:
 
  
 
-\### 6.1. Importando o Projeto
+### 6.1. Importando o Projeto
 
  
 
@@ -226,7 +226,7 @@ Para executar os códigos localmente, você precisará de:
 
  
 
-\### 6.2. Executando o projeto
+### 6.2. Executando o projeto
 
  
 
@@ -242,7 +242,7 @@ Para executar os códigos localmente, você precisará de:
 
  
 
-\## 7. Contribuição
+## 7. Contribuição
 
  
 
@@ -264,7 +264,7 @@ Este repositório é parte de um projeto educacional, mas contribuições são s
 
  
 
-\## 8. Contato
+## 8. Contato
 
  
 
