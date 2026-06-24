@@ -109,7 +109,7 @@ Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
 
  
 
-\```mermaid
+```mermaid
  classDiagram
  class Conta {
   \- numero: int
@@ -146,7 +146,7 @@ Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
  }
  ContaCorrente --> Conta
  ContaPoupanca --> Conta
- \```
+ ```
 
  
 
