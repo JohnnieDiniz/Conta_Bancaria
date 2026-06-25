@@ -162,7 +162,7 @@ Abaixo, você confere o Diagrama de Classes do Projeto Conta Bancária:
 
  
 
-<div align="center"> <img src="https://i.imgur.com/MFK9yXB.png" title="source: imgur.com" width="90%"/> </div>
+<div align="center"> <img src="https://ik.imagekit.io/JohnnieDiniz/Captura%20de%20Tela%202026-06-25%20a%CC%80s%2013.10.05.png" title="source: imgur.com" width="90%"/> </div>
 
  
 
