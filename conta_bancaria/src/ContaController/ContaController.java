@@ -3,6 +3,7 @@ package ContaController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import ContaRepository.ContaRepository;
 import conta_bancaria.model.Conta;
@@ -65,7 +66,7 @@ public class ContaController implements ContaRepository {
 
 		if (conta.isPresent()) {
 			if (listarContas.remove(conta.get()))
-				System.out.printf("\nA conta número %d foi deletada com sucessoÏ! ", numero);
+				System.out.printf("\nA conta número %d foi deletada com sucesso! ", numero);
 
 		} else
 			System.out.printf("\nA conta número %d não fo1 encontrada! ", numero);
@@ -75,21 +76,73 @@ public class ContaController implements ContaRepository {
 	@Override
 	public void sacar(int numero, float valor) {
 		// TODO Auto-generated method stub
+		
+		Optional<Conta> conta = buscarNaCollection(numero);
+
+		if (conta.isPresent()) {
+			if (conta.get().sacar(valor))
+				System.out.printf("\nO saque no valor de: R$%.2f, na conta: %d foi efetuado com sucesso! ", valor, numero);
+
+		 else
+			System.out.printf("\nO saque no valor de: R$%.2f, na conta: %d não foi efetuado devido ao saldo insuficiente! ", valor, numero);
+			
+		} else
+			System.out.printf("\nA conta número %d não fo1 encontrada! ", numero);
 
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
 		// TODO Auto-generated method stub
+		
+		Optional<Conta> conta = buscarNaCollection(numero);
+
+		if (conta.isPresent()) {
+			 conta.get().sacar(valor);
+				System.out.printf("\nO deposito no valor de: R$%.2f, na conta: %d foi efetuado com sucesso! ", valor, numero);
+
+		} else 
+			System.out.printf("\nA conta número %d não fo1 encontrada! ", numero);
 
 	}
 
 	@Override
-	public void transferir(int numeroOrigem, int numeroDeposito, float valor) {
+	public void transferir(int numeroOrigem, int numeroDestino, float valor) {
 		// TODO Auto-generated method stub
-
+		Optional<Conta> contaOrigem = buscarNaCollection(numeroOrigem);
+		Optional<Conta> contaDestino = buscarNaCollection(numeroDestino);
+		
+		if (contaOrigem.isPresent() && contaDestino.isPresent()) {
+			if (contaOrigem.get().sacar(valor)) {
+				contaDestino.get().depositar(valor);
+				System.out.printf("\nA transferência no valor de R$ %.2f, da conta número %d "
+						+ " para a conta %d foi efetuado com sucesso!"
+						, valor, numeroOrigem, numeroDestino);
+			} else
+				System.out.printf("\nA transferência no valor de R$ %.2f, da conta número %d "
+						+ "para a conta %d não foi efetuado devido ao saldo insuficiente na conta de origem!"
+						, valor, numeroOrigem, numeroDestino);
+		} else
+			System.out.printf("\nA conta número %d e/ou a conta número %d não foram encontradas!"
+					, numeroOrigem, numeroDestino);
 	}
-
+	
+	@Override
+	public void listarPorTitular(String titular) {
+		// TODO Auto-generated method stub
+		
+		List<Conta> listaTitulares = listarContas.stream()
+				.filter(conta -> conta.getTitular().toUpperCase().contains(titular.toUpperCase()))
+				.collect(Collectors.toList());
+		if (listaTitulares.isEmpty()) {
+			System.out.printf("\nNenhum titular com o nome: %s foi encontrado.", titular);
+			
+			listaTitulares.forEach(conta -> conta.visualizar());
+		}
+		else 
+			listaTitulares.forEach(conta -> conta.visualizar());
+	}
+	
 	// Método Auxiliar
 
 	public int gerarNumero() {
@@ -104,5 +157,6 @@ public class ContaController implements ContaRepository {
 		}
 		return Optional.empty();
 	}
+
 
 }

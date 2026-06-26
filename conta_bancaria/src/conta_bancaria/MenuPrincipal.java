@@ -33,7 +33,8 @@ public class MenuPrincipal {
 			System.out.println("               6 - Sacar.                                      ");
 			System.out.println("               7 - Depositar.                                  ");
 			System.out.println("               8 - Transferir valores entre conta.             ");
-			System.out.println("               9 - Sair da operação.                           ");
+			System.out.println("               9 - Consultar por nome do Titular.              ");
+			System.out.println("               10 - Sair da operação.                          ");
 			System.out.println("_______________________________________________________________");
 			System.out.println(" Ente com a opção desejada:                                    ");
 			System.out.println("                                                               " + Cores.TEXT_RESET);
@@ -80,21 +81,31 @@ public class MenuPrincipal {
 
 				leia.nextLine();
 				System.out.print(" ---- Sacar ----");
+				sacar();
 				keyPress();
 				break;
 			case 7:
 
 				leia.nextLine();
 				System.out.print(" ---- Depositar ----");
+				depositar();
 				keyPress();
 				break;
 			case 8:
 
 				leia.nextLine();
 				System.out.print(" ---- Transferência ----");
+				tranferir();
 				keyPress();
 				break;
 			case 9:
+
+				leia.nextLine();
+				System.out.print(" ---- Consulta por nome do Titular ----");
+				listarPorTitular();
+				keyPress();
+				break;
+			case 10:
 
 				leia.nextLine();
 				System.out.print(" ");
@@ -105,7 +116,7 @@ public class MenuPrincipal {
 				System.out.println("Opção Iválida!");
 			}
 
-		} while (opcao != 9);
+		} while (opcao != 10);
 	}
 
 	public static void sobre() {
@@ -289,5 +300,47 @@ public class MenuPrincipal {
 		}
 
 	}
-
+	
+	public static void sacar() {
+		System.out.println("\nDigite o numero da conta: ");
+		int numero = leia.nextInt();
+		
+		System.out.println("\nDigite um valor: ");
+		int valor = leia.nextInt();
+		
+		contaController.sacar(numero, valor);
+		
+	}
+	
+	public static void depositar() {
+		System.out.println("\nDigite o numero da conta: ");
+		int numero = leia.nextInt();
+		
+		System.out.println("\nDigite um valor do deposito: ");
+		int valor = leia.nextInt();
+		
+		contaController.depositar(numero, valor);
+	}
+	
+	public static void tranferir() {
+		System.out.println("\nDigite o numero da conta de Origem: ");
+		int numeroOrigem = leia.nextInt();
+		
+		System.out.println("\nDigite o numero da conta de Destino: ");
+		int numeroDestino = leia.nextInt();
+		
+		System.out.println("\nDigite um valor da transferência: ");
+		int valor = leia.nextInt();
+		
+		contaController.transferir(numeroOrigem, numeroDestino, valor);
+	}
+	
+	public static void listarPorTitular() {
+		System.out.println("\nDigite o nome do titluar");
+		String titular = leia.next();
+		
+		contaController.listarPorTitular(titular);
+	}
+	
+	
 }
